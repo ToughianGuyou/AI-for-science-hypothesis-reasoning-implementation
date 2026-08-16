@@ -1,0 +1,39 @@
+schema_version: 1
+repository: https://github.com/K-Dense-AI/scientific-agent-skills
+reference: b2a92ba052dcae4ef48e850b9e31ebf75706be48
+candidates:
+  - name: Hypothesis Generation
+    expected_slug: hypothesis-generation
+    intended_role: structured hypothesis generation
+    evaluation_target: b1_prompt
+    status: unverified
+  - name: Scientific Brainstorming
+    expected_slug: scientific-brainstorming
+    intended_role: divergent scientific ideation
+    evaluation_target: b1_prompt
+    status: unverified
+  - name: Arbor
+    expected_slug: arbor
+    intended_role: iterative hypothesis-tree refinement
+    evaluation_target: design_reference
+    status: unverified
+  - name: Consciousness Council
+    expected_slug: consciousness-council
+    intended_role: multi-perspective deliberation
+    evaluation_target: design_reference
+    status: unverified
+  - name: What-If Oracle
+    expected_slug: what-if-oracle
+    intended_role: scenario and counterfactual exploration
+    evaluation_target: design_reference
+    status: unverified
+  - name: Scientific Critical Thinking
+    expected_slug: scientific-critical-thinking
+    intended_role: evidence and reasoning critique
+    evaluation_target: b1_prompt
+    status: unverified
+  - name: Scholar Evaluation
+    expected_slug: scholar-evaluation
+    intended_role: structured scholarly evaluation
+    evaluation_target: b1_prompt
+    status: unverified

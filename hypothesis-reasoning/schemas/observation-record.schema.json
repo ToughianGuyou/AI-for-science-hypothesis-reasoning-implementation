@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "ObservationModality": {
+      "enum": [
+        "time_series",
+        "spectrum",
+        "image",
+        "catalog",
+        "other"
+      ],
+      "title": "ObservationModality",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "anomaly_tags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Anomaly Tags",
+      "type": "array"
+    },
+    "data_source": {
+      "minLength": 1,
+      "title": "Data Source",
+      "type": "string"
+    },
+    "features": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Features",
+      "type": "array"
+    },
+    "method": {
+      "minLength": 1,
+      "title": "Method",
+      "type": "string"
+    },
+    "modality": {
+      "$ref": "#/$defs/ObservationModality"
+    },
+    "observation_id": {
+      "minLength": 1,
+      "title": "Observation Id",
+      "type": "string"
+    },
+    "provenance": {
+      "additionalProperties": true,
+      "title": "Provenance",
+      "type": "object"
+    },
+    "summary": {
+      "minLength": 1,
+      "title": "Summary",
+      "type": "string"
+    },
+    "target_id": {
+      "minLength": 1,
+      "title": "Target Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "observation_id",
+    "target_id",
+    "data_source",
+    "modality",
+    "summary",
+    "features",
+    "anomaly_tags",
+    "method",
+    "provenance"
+  ],
+  "title": "ObservationRecord",
+  "type": "object"
+}

@@ -1,0 +1,308 @@
+{
+  "$defs": {
+    "AuditDecision": {
+      "enum": [
+        "direct_reuse",
+        "adapt",
+        "design_only",
+        "reject",
+        "not_found"
+      ],
+      "title": "AuditDecision",
+      "type": "string"
+    },
+    "AuditStatus": {
+      "enum": [
+        "verified",
+        "not_found"
+      ],
+      "title": "AuditStatus",
+      "type": "string"
+    },
+    "DecisionGates": {
+      "additionalProperties": false,
+      "description": "Machine-readable evidence used to derive a preliminary static decision.",
+      "properties": {
+        "bounded_loop_contract_detected": {
+          "title": "Bounded Loop Contract Detected",
+          "type": "boolean"
+        },
+        "exact_hypothesis_contract_detected": {
+          "title": "Exact Hypothesis Contract Detected",
+          "type": "boolean"
+        },
+        "host_actions_detected": {
+          "title": "Host Actions Detected",
+          "type": "boolean"
+        },
+        "intended_for_b1": {
+          "title": "Intended For B1",
+          "type": "boolean"
+        },
+        "license_compatible": {
+          "title": "License Compatible",
+          "type": "boolean"
+        },
+        "run_trace_contract_detected": {
+          "title": "Run Trace Contract Detected",
+          "type": "boolean"
+        },
+        "scientific_reasoning_detected": {
+          "title": "Scientific Reasoning Detected",
+          "type": "boolean"
+        },
+        "supplied_reference_enforcement_detected": {
+          "title": "Supplied Reference Enforcement Detected",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "license_compatible",
+        "intended_for_b1",
+        "scientific_reasoning_detected",
+        "exact_hypothesis_contract_detected",
+        "supplied_reference_enforcement_detected",
+        "bounded_loop_contract_detected",
+        "run_trace_contract_detected",
+        "host_actions_detected"
+      ],
+      "title": "DecisionGates",
+      "type": "object"
+    },
+    "IntegrationEffort": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ],
+      "title": "IntegrationEffort",
+      "type": "string"
+    },
+    "SecurityFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/SecurityFindingKind"
+        },
+        "line": {
+          "minimum": 1,
+          "title": "Line",
+          "type": "integer"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "summary": {
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "relative_path",
+        "line",
+        "summary"
+      ],
+      "title": "SecurityFinding",
+      "type": "object"
+    },
+    "SecurityFindingKind": {
+      "enum": [
+        "shell_command",
+        "package_install",
+        "network_call",
+        "file_write"
+      ],
+      "title": "SecurityFindingKind",
+      "type": "string"
+    },
+    "SkillAuditRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_name": {
+          "minLength": 1,
+          "title": "Candidate Name",
+          "type": "string"
+        },
+        "commit": {
+          "title": "Commit",
+          "type": "string"
+        },
+        "content_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Content Sha256"
+        },
+        "decision": {
+          "$ref": "#/$defs/AuditDecision"
+        },
+        "decision_gates": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DecisionGates"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decision_reason": {
+          "minLength": 1,
+          "title": "Decision Reason",
+          "type": "string"
+        },
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "evidence_control": {
+          "minLength": 1,
+          "title": "Evidence Control",
+          "type": "string"
+        },
+        "input_contract": {
+          "minLength": 1,
+          "title": "Input Contract",
+          "type": "string"
+        },
+        "integration_effort": {
+          "$ref": "#/$defs/IntegrationEffort"
+        },
+        "license": {
+          "minLength": 1,
+          "title": "License",
+          "type": "string"
+        },
+        "loop_control": {
+          "minLength": 1,
+          "title": "Loop Control",
+          "type": "string"
+        },
+        "mechanism": {
+          "minLength": 1,
+          "title": "Mechanism",
+          "type": "string"
+        },
+        "observability": {
+          "minLength": 1,
+          "title": "Observability",
+          "type": "string"
+        },
+        "output_contract": {
+          "minLength": 1,
+          "title": "Output Contract",
+          "type": "string"
+        },
+        "relative_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Relative Path"
+        },
+        "repository": {
+          "pattern": "^https://github\\.com/[^/]+/[^/]+/?$",
+          "title": "Repository",
+          "type": "string"
+        },
+        "scanned_files": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Scanned Files",
+          "type": "array"
+        },
+        "security_risks": {
+          "items": {
+            "$ref": "#/$defs/SecurityFinding"
+          },
+          "title": "Security Risks",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/AuditStatus"
+        }
+      },
+      "required": [
+        "candidate_name",
+        "repository",
+        "commit",
+        "relative_path",
+        "content_sha256",
+        "license",
+        "dependencies",
+        "mechanism",
+        "input_contract",
+        "output_contract",
+        "evidence_control",
+        "loop_control",
+        "observability",
+        "security_risks",
+        "scanned_files",
+        "decision_gates",
+        "integration_effort",
+        "decision",
+        "decision_reason",
+        "status"
+      ],
+      "title": "SkillAuditRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "commit": {
+      "title": "Commit",
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "$ref": "#/$defs/SkillAuditRecord"
+      },
+      "minItems": 1,
+      "title": "Records",
+      "type": "array"
+    },
+    "repository": {
+      "pattern": "^https://github\\.com/[^/]+/[^/]+/?$",
+      "title": "Repository",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "repository",
+    "commit",
+    "generated_at",
+    "records"
+  ],
+  "title": "SkillAuditReport",
+  "type": "object"
+}

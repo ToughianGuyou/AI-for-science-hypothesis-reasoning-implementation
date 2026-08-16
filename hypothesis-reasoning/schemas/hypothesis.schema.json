@@ -1,0 +1,220 @@
+{
+  "$defs": {
+    "HypothesisStatus": {
+      "enum": [
+        "proposed",
+        "needs_revision",
+        "accepted",
+        "rejected"
+      ],
+      "title": "HypothesisStatus",
+      "type": "string"
+    },
+    "Prediction": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "expected_direction": {
+          "minLength": 1,
+          "title": "Expected Direction",
+          "type": "string"
+        },
+        "falsifiable": {
+          "title": "Falsifiable",
+          "type": "boolean"
+        },
+        "variable": {
+          "minLength": 1,
+          "title": "Variable",
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "variable",
+        "expected_direction",
+        "falsifiable"
+      ],
+      "title": "Prediction",
+      "type": "object"
+    },
+    "ReasoningType": {
+      "enum": [
+        "inductive",
+        "deductive",
+        "hybrid"
+      ],
+      "title": "ReasoningType",
+      "type": "string"
+    },
+    "ValidationPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "baselines": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Baselines",
+          "type": "array"
+        },
+        "method": {
+          "minLength": 1,
+          "title": "Method",
+          "type": "string"
+        },
+        "metrics": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "required_data": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Data",
+          "type": "array"
+        }
+      },
+      "required": [
+        "method",
+        "baselines",
+        "metrics",
+        "required_data"
+      ],
+      "title": "ValidationPlan",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "alternative_explanations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Alternative Explanations",
+      "type": "array"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "confidence": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "falsification_criteria": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Falsification Criteria",
+      "type": "array"
+    },
+    "hypothesis_id": {
+      "minLength": 1,
+      "title": "Hypothesis Id",
+      "type": "string"
+    },
+    "mechanism": {
+      "minLength": 1,
+      "title": "Mechanism",
+      "type": "string"
+    },
+    "observation_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Observation Ids",
+      "type": "array"
+    },
+    "parent_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Id"
+    },
+    "predictions": {
+      "items": {
+        "$ref": "#/$defs/Prediction"
+      },
+      "title": "Predictions",
+      "type": "array"
+    },
+    "reasoning_type": {
+      "$ref": "#/$defs/ReasoningType"
+    },
+    "scope_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Scope Conditions",
+      "type": "array"
+    },
+    "statement": {
+      "minLength": 1,
+      "title": "Statement",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/HypothesisStatus"
+    },
+    "topic_id": {
+      "minLength": 1,
+      "title": "Topic Id",
+      "type": "string"
+    },
+    "unsupported_claims": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Unsupported Claims",
+      "type": "array"
+    },
+    "validation_plan": {
+      "$ref": "#/$defs/ValidationPlan"
+    }
+  },
+  "required": [
+    "hypothesis_id",
+    "topic_id",
+    "reasoning_type",
+    "statement",
+    "mechanism",
+    "evidence_ids",
+    "observation_ids",
+    "assumptions",
+    "scope_conditions",
+    "predictions",
+    "falsification_criteria",
+    "alternative_explanations",
+    "validation_plan",
+    "unsupported_claims",
+    "confidence",
+    "status"
+  ],
+  "title": "Hypothesis",
+  "type": "object"
+}

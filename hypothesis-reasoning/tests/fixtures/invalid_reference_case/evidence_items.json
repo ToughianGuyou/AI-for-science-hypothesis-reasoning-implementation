@@ -1,0 +1,12 @@
+[
+  {
+    "evidence_id": "evidence-unverified-001",
+    "paper_title": "An unverified public astronomy study",
+    "identifier": "doi:10.0000/unverified",
+    "location": {"page": 1},
+    "source_text": "A claim requires verification.",
+    "extracted_fact": "The claim is not verified.",
+    "scope": "A provisional source.",
+    "verification_status": "unverified"
+  }
+]

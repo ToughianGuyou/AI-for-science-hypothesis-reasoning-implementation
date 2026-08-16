@@ -1,0 +1,15 @@
+version: 1
+
+gateway:
+  max_attempts: 3
+  request_timeout_seconds: 60
+  json_repair_attempts: 1
+
+pipeline:
+  max_refinement_rounds: 1
+
+budget_partitions_cny:
+  development: "30.00"
+  smoke: "30.00"
+  formal: "180.00"
+  reserve: "60.00"

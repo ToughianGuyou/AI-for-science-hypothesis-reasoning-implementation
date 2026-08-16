@@ -1,0 +1,74 @@
+{
+  "$defs": {
+    "GapType": {
+      "enum": [
+        "anomaly",
+        "contradiction",
+        "knowledge_gap"
+      ],
+      "title": "GapType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "expected_validation": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Expected Validation",
+      "type": "array"
+    },
+    "gap_type": {
+      "$ref": "#/$defs/GapType"
+    },
+    "motivation": {
+      "minLength": 1,
+      "title": "Motivation",
+      "type": "string"
+    },
+    "observation_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Observation Ids",
+      "type": "array"
+    },
+    "research_question": {
+      "minLength": 1,
+      "title": "Research Question",
+      "type": "string"
+    },
+    "risks": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Risks",
+      "type": "array"
+    },
+    "topic_id": {
+      "minLength": 1,
+      "title": "Topic Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "topic_id",
+    "research_question",
+    "gap_type",
+    "motivation",
+    "evidence_ids",
+    "observation_ids",
+    "expected_validation",
+    "risks"
+  ],
+  "title": "TopicCandidate",
+  "type": "object"
+}

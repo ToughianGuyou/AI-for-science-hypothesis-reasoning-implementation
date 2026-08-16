@@ -1,0 +1,1795 @@
+{
+  "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+  "generated_at": "2026-08-15T08:34:02.615154Z",
+  "records": [
+    {
+      "candidate_name": "Hypothesis Generation",
+      "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+      "content_sha256": "03988141652207b38838a5f1d494297f7db715e496b1623f7880e417ad0ce3c4",
+      "decision": "adapt",
+      "decision_gates": {
+        "bounded_loop_contract_detected": false,
+        "exact_hypothesis_contract_detected": false,
+        "host_actions_detected": true,
+        "intended_for_b1": true,
+        "license_compatible": true,
+        "run_trace_contract_detected": false,
+        "scientific_reasoning_detected": true,
+        "supplied_reference_enforcement_detected": false
+      },
+      "decision_reason": "B1-targeted candidate requires adaptation for: exact Hypothesis contract, supplied-reference enforcement, bounded loop contract, RunTrace contract, host-action removal.",
+      "dependencies": [],
+      "evidence_control": "Mentions evidence or sources but exact supplied evidence_ids and observation_ids enforcement was not detected.",
+      "input_contract": "Static inspection found no exact prototype CaseBundle input contract.",
+      "integration_effort": "high",
+      "license": "MIT",
+      "loop_control": "Contains iteration/refinement language, but no bounded-loop phrase was detected.",
+      "mechanism": "Inventory hypothesis (b1_prompt): structured hypothesis generation.",
+      "observability": "Mentions outputs or reports, but no prototype RunTrace term was detected.",
+      "output_contract": "Mentions structured or JSON output, but not the prototype's exact Hypothesis fields.",
+      "relative_path": "skills/hypothesis-generation/SKILL.md",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "scanned_files": [
+        "assets/evidence_ledger_template.csv",
+        "assets/falsification_controls_template.json",
+        "assets/hypothesis_record_template.json",
+        "assets/operationalization_template.json",
+        "assets/prediction_rival_matrix_template.csv",
+        "assets/preregistration_scaffold_template.md",
+        "assets/search_boundary_template.json",
+        "assets/source_ledger.csv",
+        "references/causal_inference_and_claims.md",
+        "references/concepts_and_workflow.md",
+        "references/ethics_safety_and_ai.md",
+        "references/experimental_design_patterns.md",
+        "references/hypothesis_quality_criteria.md",
+        "references/literature_search_strategies.md",
+        "references/preregistration_and_open_science.md",
+        "references/security_validation.md",
+        "references/source_ledger.md",
+        "references/tool_reference.md",
+        "scripts/_common.py",
+        "scripts/audit_evidence_ledger.py",
+        "scripts/check_falsification_controls.py",
+        "scripts/check_operationalization.py",
+        "scripts/generate_preregistration_scaffold.py",
+        "scripts/lint_causal_claims.py",
+        "scripts/validate_hypothesis_schema.py",
+        "scripts/validate_prediction_matrix.py",
+        "SKILL.md"
+      ],
+      "security_risks": [
+        {
+          "kind": "file_write",
+          "line": 70,
+          "relative_path": "references/security_validation.md",
+          "summary": "--output /tmp/hypothesis-generation-pr-scan.md \\"
+        },
+        {
+          "kind": "file_write",
+          "line": 13,
+          "relative_path": "references/tool_reference.md",
+          "summary": "- write only to an explicit existing local directory;"
+        },
+        {
+          "kind": "file_write",
+          "line": 73,
+          "relative_path": "scripts/_common.py",
+          "summary": "\"\"\"Resolve an output in an existing directory without implicit overwrite.\"\"\""
+        },
+        {
+          "kind": "file_write",
+          "line": 81,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise ValidationError(f\"output parent does not exist: {path.parent}\") from exc"
+        },
+        {
+          "kind": "file_write",
+          "line": 83,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise ValidationError(f\"output parent is not a directory: {parent}\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 89,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise ValidationError(f\"output is not a regular file: {resolved}\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 361,
+          "relative_path": "scripts/_common.py",
+          "summary": "def atomic_write_text("
+        },
+        {
+          "kind": "file_write",
+          "line": 386,
+          "relative_path": "scripts/_common.py",
+          "summary": "def write_json_report("
+        },
+        {
+          "kind": "file_write",
+          "line": 389,
+          "relative_path": "scripts/_common.py",
+          "summary": "\"\"\"Print JSON or atomically write it to an explicitly selected local file.\"\"\""
+        },
+        {
+          "kind": "file_write",
+          "line": 394,
+          "relative_path": "scripts/_common.py",
+          "summary": "destination = safe_output_path(output, \".json\", force=force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 395,
+          "relative_path": "scripts/_common.py",
+          "summary": "atomic_write_text(destination, serialized)"
+        },
+        {
+          "kind": "file_write",
+          "line": 401,
+          "relative_path": "scripts/_common.py",
+          "summary": "destination = safe_output_path(output, \".md\", force=force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 402,
+          "relative_path": "scripts/_common.py",
+          "summary": "return atomic_write_text(destination, text)"
+        },
+        {
+          "kind": "file_write",
+          "line": 314,
+          "relative_path": "scripts/audit_evidence_ledger.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 330,
+          "relative_path": "scripts/audit_evidence_ledger.py",
+          "summary": "write_json_report(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 436,
+          "relative_path": "scripts/check_falsification_controls.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 448,
+          "relative_path": "scripts/check_falsification_controls.py",
+          "summary": "write_json_report(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 221,
+          "relative_path": "scripts/check_operationalization.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 230,
+          "relative_path": "scripts/check_operationalization.py",
+          "summary": "write_json_report(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 57,
+          "relative_path": "scripts/generate_preregistration_scaffold.py",
+          "summary": "lines.append(_bullet(\"required reviews\", \"; \".join(reviews)))"
+        },
+        {
+          "kind": "file_write",
+          "line": 58,
+          "relative_path": "scripts/generate_preregistration_scaffold.py",
+          "summary": "lines.append(_bullet(\"unresolved blocks\", \"; \".join(blocks)))"
+        },
+        {
+          "kind": "file_write",
+          "line": 365,
+          "relative_path": "scripts/generate_preregistration_scaffold.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 375,
+          "relative_path": "scripts/generate_preregistration_scaffold.py",
+          "summary": "generate(record), args.output, force=args.force"
+        },
+        {
+          "kind": "file_write",
+          "line": 78,
+          "relative_path": "scripts/lint_causal_claims.py",
+          "summary": "errors.append(_finding(f\"DUPLICATE_{key.upper()}_TAG\", line_number))"
+        },
+        {
+          "kind": "file_write",
+          "line": 173,
+          "relative_path": "scripts/lint_causal_claims.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 182,
+          "relative_path": "scripts/lint_causal_claims.py",
+          "summary": "write_json_report(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 1061,
+          "relative_path": "scripts/validate_hypothesis_schema.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 1071,
+          "relative_path": "scripts/validate_hypothesis_schema.py",
+          "summary": "write_json_report(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 267,
+          "relative_path": "scripts/validate_prediction_matrix.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 279,
+          "relative_path": "scripts/validate_prediction_matrix.py",
+          "summary": "write_json_report(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "shell_command",
+          "line": 178,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 179,
+          "relative_path": "SKILL.md",
+          "summary": "python3 scripts/check_operationalization.py local-operationalization.json"
+        },
+        {
+          "kind": "shell_command",
+          "line": 241,
+          "relative_path": "SKILL.md",
+          "summary": "| Hypothesis-record schema | `assets/hypothesis_record_template.json` | `python3 scripts/validate_hypothesis_schema.py record.json` |"
+        },
+        {
+          "kind": "shell_command",
+          "line": 242,
+          "relative_path": "SKILL.md",
+          "summary": "| Measurement checklist | `assets/operationalization_template.json` | `python3 scripts/check_operationalization.py checklist.json` |"
+        },
+        {
+          "kind": "shell_command",
+          "line": 243,
+          "relative_path": "SKILL.md",
+          "summary": "| Prediction/rival matrix | `assets/prediction_rival_matrix_template.csv` | `python3 scripts/validate_prediction_matrix.py matrix.csv` |"
+        },
+        {
+          "kind": "shell_command",
+          "line": 244,
+          "relative_path": "SKILL.md",
+          "summary": "| Claim-language lint | Annotated Markdown | `python3 scripts/lint_causal_claims.py draft.md` |"
+        },
+        {
+          "kind": "shell_command",
+          "line": 245,
+          "relative_path": "SKILL.md",
+          "summary": "| Falsification/controls | `assets/falsification_controls_template.json` | `python3 scripts/check_falsification_controls.py controls.json` |"
+        },
+        {
+          "kind": "shell_command",
+          "line": 246,
+          "relative_path": "SKILL.md",
+          "summary": "| Evidence/source audit | `assets/evidence_ledger_template.csv` + `assets/search_boundary_template.json` | `python3 scripts/audit_evidence_ledger.py ledger.csv boundary.json` |"
+        },
+        {
+          "kind": "shell_command",
+          "line": 247,
+          "relative_path": "SKILL.md",
+          "summary": "| Preregistration scaffold | `assets/preregistration_scaffold_template.md` | `python3 scripts/generate_preregistration_scaffold.py record.json -o preregistration.md` |"
+        },
+        {
+          "kind": "shell_command",
+          "line": 174,
+          "relative_path": "references/causal_inference_and_claims.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 175,
+          "relative_path": "references/causal_inference_and_claims.md",
+          "summary": "python3 scripts/lint_causal_claims.py local-draft.md"
+        },
+        {
+          "kind": "shell_command",
+          "line": 148,
+          "relative_path": "references/literature_search_strategies.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 149,
+          "relative_path": "references/literature_search_strategies.md",
+          "summary": "python3 scripts/audit_evidence_ledger.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 193,
+          "relative_path": "references/preregistration_and_open_science.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 194,
+          "relative_path": "references/preregistration_and_open_science.md",
+          "summary": "python3 scripts/generate_preregistration_scaffold.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 60,
+          "relative_path": "references/security_validation.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 61,
+          "relative_path": "references/security_validation.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 64,
+          "relative_path": "references/security_validation.md",
+          "summary": "uv run skills-ref validate skills/hypothesis-generation"
+        },
+        {
+          "kind": "shell_command",
+          "line": 66,
+          "relative_path": "references/security_validation.md",
+          "summary": "uv run skill-scanner scan skills/hypothesis-generation --use-behavioral"
+        },
+        {
+          "kind": "shell_command",
+          "line": 68,
+          "relative_path": "references/security_validation.md",
+          "summary": "uv run python scan_pr_skills.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 31,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 32,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/validate_hypothesis_schema.py local-record.json"
+        },
+        {
+          "kind": "shell_command",
+          "line": 33,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/validate_hypothesis_schema.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 62,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 63,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/check_operationalization.py local-operationalization.json"
+        },
+        {
+          "kind": "shell_command",
+          "line": 93,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 94,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/validate_prediction_matrix.py local-matrix.csv"
+        },
+        {
+          "kind": "shell_command",
+          "line": 95,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/validate_prediction_matrix.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 111,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 112,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/lint_causal_claims.py local-draft.md"
+        },
+        {
+          "kind": "shell_command",
+          "line": 151,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 152,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/check_falsification_controls.py local-controls.json"
+        },
+        {
+          "kind": "shell_command",
+          "line": 153,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/check_falsification_controls.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 182,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 183,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/audit_evidence_ledger.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 186,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/audit_evidence_ledger.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 214,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 215,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/generate_preregistration_scaffold.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 232,
+          "relative_path": "references/tool_reference.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 233,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/validate_hypothesis_schema.py local-record.json"
+        },
+        {
+          "kind": "shell_command",
+          "line": 234,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/check_operationalization.py local-operationalization.json"
+        },
+        {
+          "kind": "shell_command",
+          "line": 235,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/validate_prediction_matrix.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 237,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/check_falsification_controls.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 239,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/audit_evidence_ledger.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 241,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/lint_causal_claims.py local-draft.md"
+        },
+        {
+          "kind": "shell_command",
+          "line": 242,
+          "relative_path": "references/tool_reference.md",
+          "summary": "python3 scripts/generate_preregistration_scaffold.py \\"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "candidate_name": "Scientific Brainstorming",
+      "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+      "content_sha256": "694060b28d59d46ac9c3c76be96cbd319f772893cfb12d9cff3136396711da6d",
+      "decision": "adapt",
+      "decision_gates": {
+        "bounded_loop_contract_detected": false,
+        "exact_hypothesis_contract_detected": false,
+        "host_actions_detected": true,
+        "intended_for_b1": true,
+        "license_compatible": true,
+        "run_trace_contract_detected": false,
+        "scientific_reasoning_detected": true,
+        "supplied_reference_enforcement_detected": false
+      },
+      "decision_reason": "B1-targeted candidate requires adaptation for: exact Hypothesis contract, supplied-reference enforcement, bounded loop contract, RunTrace contract, host-action removal.",
+      "dependencies": [],
+      "evidence_control": "Mentions evidence or sources but exact supplied evidence_ids and observation_ids enforcement was not detected.",
+      "input_contract": "Static inspection found no exact prototype CaseBundle input contract.",
+      "integration_effort": "high",
+      "license": "MIT",
+      "loop_control": "Contains iteration/refinement language, but no bounded-loop phrase was detected.",
+      "mechanism": "Inventory hypothesis (b1_prompt): divergent scientific ideation.",
+      "observability": "Mentions outputs or reports, but no prototype RunTrace term was detected.",
+      "output_contract": "Mentions structured or JSON output, but not the prototype's exact Hypothesis fields.",
+      "relative_path": "skills/scientific-brainstorming/SKILL.md",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "scanned_files": [
+        "references/brainstorming_methods.md",
+        "references/facilitation_workflows.md",
+        "references/idea_evaluation.md",
+        "references/responsible_ai.md",
+        "references/sources.md",
+        "scripts/_common.py",
+        "scripts/evaluate_matrix.py",
+        "scripts/session_scaffold.py",
+        "scripts/validate_register.py",
+        "SKILL.md"
+      ],
+      "security_risks": [
+        {
+          "kind": "file_write",
+          "line": 246,
+          "relative_path": "SKILL.md",
+          "summary": "--output session.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 252,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/validate_register.py session.json --output validation.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 262,
+          "relative_path": "SKILL.md",
+          "summary": "--output matrix.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 108,
+          "relative_path": "references/idea_evaluation.md",
+          "summary": "--output matrix.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 184,
+          "relative_path": "scripts/_common.py",
+          "summary": "\"\"\"Resolve a user-selected output in an existing directory.\"\"\""
+        },
+        {
+          "kind": "file_write",
+          "line": 188,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise CliError(\"output must name a file\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 196,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise CliError(\"output parent directory does not exist\") from exc"
+        },
+        {
+          "kind": "file_write",
+          "line": 198,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise CliError(\"output parent is not a directory\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 203,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise CliError(\"output exists and is not a regular file\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 207,
+          "relative_path": "scripts/_common.py",
+          "summary": "def write_json("
+        },
+        {
+          "kind": "file_write",
+          "line": 257,
+          "relative_path": "scripts/_common.py",
+          "summary": "raise CliError(\"output exists and is not a regular file\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 301,
+          "relative_path": "scripts/_common.py",
+          "summary": "return write_json(output, payload, force=force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 329,
+          "relative_path": "scripts/evaluate_matrix.py",
+          "summary": "scenario_names.append(f\"{criterion.name}:{sign}\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 493,
+          "relative_path": "scripts/evaluate_matrix.py",
+          "summary": "help=\"Explicitly replace an existing regular output file\","
+        },
+        {
+          "kind": "file_write",
+          "line": 510,
+          "relative_path": "scripts/evaluate_matrix.py",
+          "summary": "emit_json(result, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 219,
+          "relative_path": "scripts/session_scaffold.py",
+          "summary": "help=\"Explicitly replace an existing regular output file\","
+        },
+        {
+          "kind": "file_write",
+          "line": 240,
+          "relative_path": "scripts/session_scaffold.py",
+          "summary": "emit_json(payload, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 182,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(\"$.session\", \"must be an object\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 220,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(\"$.session.date\", str(exc)))"
+        },
+        {
+          "kind": "file_write",
+          "line": 245,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(f\"{path}.id\", \"duplicate assumption ID\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 297,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(\"$.ideas\", \"must be a list\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 319,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(f\"{path}.id\", \"duplicate idea ID\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 503,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(\"$.clusters\", \"must be a list when present\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 505,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(\"$.clusters\", f\"limit is {MAX_ITEMS}\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 516,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(f\"{path}.id\", \"duplicate cluster ID\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 559,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "errors.append(_issue(f\"{path}.date\", str(exc)))"
+        },
+        {
+          "kind": "file_write",
+          "line": 632,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "help=\"Explicitly replace an existing regular output file\","
+        },
+        {
+          "kind": "file_write",
+          "line": 644,
+          "relative_path": "scripts/validate_register.py",
+          "summary": "emit_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "shell_command",
+          "line": 232,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 233,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/session_scaffold.py --help"
+        },
+        {
+          "kind": "shell_command",
+          "line": 234,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/validate_register.py --help"
+        },
+        {
+          "kind": "shell_command",
+          "line": 235,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/evaluate_matrix.py --help"
+        },
+        {
+          "kind": "shell_command",
+          "line": 240,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 241,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/session_scaffold.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 251,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 252,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/validate_register.py session.json --output validation.json"
+        },
+        {
+          "kind": "shell_command",
+          "line": 258,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 259,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/evaluate_matrix.py scores.csv \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 104,
+          "relative_path": "references/idea_evaluation.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 105,
+          "relative_path": "references/idea_evaluation.md",
+          "summary": "python scripts/evaluate_matrix.py scores.csv \\"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "candidate_name": "Arbor",
+      "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+      "content_sha256": "1825f2a08f4767e37ec4a27e71332f8048ea48f6dbd2f3c2a82a5a872b3897d8",
+      "decision": "design_only",
+      "decision_gates": {
+        "bounded_loop_contract_detected": false,
+        "exact_hypothesis_contract_detected": false,
+        "host_actions_detected": true,
+        "intended_for_b1": false,
+        "license_compatible": true,
+        "run_trace_contract_detected": false,
+        "scientific_reasoning_detected": true,
+        "supplied_reference_enforcement_detected": false
+      },
+      "decision_reason": "The inventory explicitly scopes this candidate as a design reference; the name was not used to infer B1 eligibility.",
+      "dependencies": [
+        "uv pip install -e ."
+      ],
+      "evidence_control": "Mentions evidence or sources but exact supplied evidence_ids and observation_ids enforcement was not detected.",
+      "input_contract": "Static inspection found no exact prototype CaseBundle input contract.",
+      "integration_effort": "high",
+      "license": "MIT",
+      "loop_control": "Contains iteration/refinement language, but no bounded-loop phrase was detected.",
+      "mechanism": "Inventory hypothesis (design_reference): iterative hypothesis-tree refinement.",
+      "observability": "Mentions outputs or reports, but no prototype RunTrace term was detected.",
+      "output_contract": "Natural-language/Markdown output without the prototype's Hypothesis JSON schema.",
+      "relative_path": "skills/arbor/SKILL.md",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "scanned_files": [
+        "references/arbor-upstream.md",
+        "references/executor-brief.md",
+        "references/htr-methodology.md",
+        "references/report-template.md",
+        "scripts/tree.py",
+        "SKILL.md"
+      ],
+      "security_risks": [
+        {
+          "kind": "file_write",
+          "line": 71,
+          "relative_path": "scripts/tree.py",
+          "summary": "with open(tmp, \"w\") as f:"
+        },
+        {
+          "kind": "package_install",
+          "line": 22,
+          "relative_path": "references/arbor-upstream.md",
+          "summary": "uv pip install -e ."
+        },
+        {
+          "kind": "shell_command",
+          "line": 45,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 46,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/tree.py init \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 57,
+          "relative_path": "SKILL.md",
+          "summary": "You run repeated cycles of six steps. This is the heart of HTR; do not collapse it into ad-hoc editing. Run `python scripts/tree.py cycle` once per cycle to track the budget."
+        },
+        {
+          "kind": "shell_command",
+          "line": 62,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 63,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/tree.py observe"
+        },
+        {
+          "kind": "shell_command",
+          "line": 76,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 77,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/tree.py add-node --parent n0 --hypothesis \"Verification, not retrieval, is the bottleneck: candidates are found but discarded\""
+        },
+        {
+          "kind": "shell_command",
+          "line": 78,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/tree.py add-node --parent n4 --hypothesis \"Decompose the question into atomic constraints and verify each independently\""
+        },
+        {
+          "kind": "shell_command",
+          "line": 100,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 101,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/tree.py set-evidence --node n5 --dev-score 70.0 \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 106,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/tree.py propagate --node n5 \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 116,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 120,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 131,
+          "relative_path": "SKILL.md",
+          "summary": "- the tree (`python scripts/tree.py status`) as the audit trail of what was tried;"
+        },
+        {
+          "kind": "shell_command",
+          "line": 18,
+          "relative_path": "references/arbor-upstream.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 21,
+          "relative_path": "references/arbor-upstream.md",
+          "summary": "python -m venv .venv && source .venv/bin/activate"
+        },
+        {
+          "kind": "shell_command",
+          "line": 22,
+          "relative_path": "references/arbor-upstream.md",
+          "summary": "uv pip install -e ."
+        },
+        {
+          "kind": "shell_command",
+          "line": 28,
+          "relative_path": "references/arbor-upstream.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 44,
+          "relative_path": "references/arbor-upstream.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 35,
+          "relative_path": "references/executor-brief.md",
+          "summary": "[exact command, e.g. `python eval.py --split dev --n 50`]"
+        },
+        {
+          "kind": "shell_command",
+          "line": 63,
+          "relative_path": "references/executor-brief.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 64,
+          "relative_path": "references/executor-brief.md",
+          "summary": "python scripts/tree.py set-evidence --node <id> \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 17,
+          "relative_path": "references/report-template.md",
+          "summary": "[Paste `python scripts/tree.py status` — the tree shows every direction,"
+        },
+        {
+          "kind": "shell_command",
+          "line": 24,
+          "relative_path": "scripts/tree.py",
+          "summary": "Node fields mirror the paper's research unit  n = <h, iota, mu>:"
+        },
+        {
+          "kind": "shell_command",
+          "line": 29,
+          "relative_path": "scripts/tree.py",
+          "summary": "Run `python tree.py --help` or `python tree.py <command> --help`."
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "candidate_name": "Consciousness Council",
+      "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+      "content_sha256": "5c7b82a5ac8103082062889a4b33052f296b7867d9ed566dd00d064e3f2ff667",
+      "decision": "design_only",
+      "decision_gates": {
+        "bounded_loop_contract_detected": false,
+        "exact_hypothesis_contract_detected": false,
+        "host_actions_detected": false,
+        "intended_for_b1": false,
+        "license_compatible": true,
+        "run_trace_contract_detected": false,
+        "scientific_reasoning_detected": true,
+        "supplied_reference_enforcement_detected": false
+      },
+      "decision_reason": "The inventory explicitly scopes this candidate as a design reference; the name was not used to infer B1 eligibility.",
+      "dependencies": [],
+      "evidence_control": "Mentions evidence or sources but exact supplied evidence_ids and observation_ids enforcement was not detected.",
+      "input_contract": "Static inspection found no exact prototype CaseBundle input contract.",
+      "integration_effort": "medium",
+      "license": "MIT",
+      "loop_control": "No explicit bounded iteration contract was detected.",
+      "mechanism": "Inventory hypothesis (design_reference): multi-perspective deliberation.",
+      "observability": "Mentions outputs or reports, but no prototype RunTrace term was detected.",
+      "output_contract": "Natural-language/Markdown output without the prototype's Hypothesis JSON schema.",
+      "relative_path": "skills/consciousness-council/SKILL.md",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "scanned_files": [
+        "references/advanced-configurations.md",
+        "SKILL.md"
+      ],
+      "security_risks": [],
+      "status": "verified"
+    },
+    {
+      "candidate_name": "What-If Oracle",
+      "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+      "content_sha256": "db41c8494457c86a5cc72dfad29c4028400deb2609ad5a059411ee2c7f34f86a",
+      "decision": "design_only",
+      "decision_gates": {
+        "bounded_loop_contract_detected": false,
+        "exact_hypothesis_contract_detected": false,
+        "host_actions_detected": false,
+        "intended_for_b1": false,
+        "license_compatible": true,
+        "run_trace_contract_detected": false,
+        "scientific_reasoning_detected": true,
+        "supplied_reference_enforcement_detected": false
+      },
+      "decision_reason": "The inventory explicitly scopes this candidate as a design reference; the name was not used to infer B1 eligibility.",
+      "dependencies": [],
+      "evidence_control": "Mentions evidence or sources but exact supplied evidence_ids and observation_ids enforcement was not detected.",
+      "input_contract": "Static inspection found no exact prototype CaseBundle input contract.",
+      "integration_effort": "medium",
+      "license": "MIT",
+      "loop_control": "No explicit bounded iteration contract was detected.",
+      "mechanism": "Inventory hypothesis (design_reference): scenario and counterfactual exploration.",
+      "observability": "Mentions outputs or reports, but no prototype RunTrace term was detected.",
+      "output_contract": "Natural-language/Markdown output without the prototype's Hypothesis JSON schema.",
+      "relative_path": "skills/what-if-oracle/SKILL.md",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "scanned_files": [
+        "references/scenario-templates.md",
+        "SKILL.md"
+      ],
+      "security_risks": [],
+      "status": "verified"
+    },
+    {
+      "candidate_name": "Scientific Critical Thinking",
+      "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+      "content_sha256": "e615da7e6a908791bdbf3a497849b16839aea27d2b42f330bc6d0defce82283c",
+      "decision": "adapt",
+      "decision_gates": {
+        "bounded_loop_contract_detected": false,
+        "exact_hypothesis_contract_detected": false,
+        "host_actions_detected": true,
+        "intended_for_b1": true,
+        "license_compatible": true,
+        "run_trace_contract_detected": false,
+        "scientific_reasoning_detected": true,
+        "supplied_reference_enforcement_detected": false
+      },
+      "decision_reason": "B1-targeted candidate requires adaptation for: exact Hypothesis contract, supplied-reference enforcement, bounded loop contract, RunTrace contract, host-action removal.",
+      "dependencies": [],
+      "evidence_control": "Mentions evidence or sources but exact supplied evidence_ids and observation_ids enforcement was not detected.",
+      "input_contract": "Static inspection found no exact prototype CaseBundle input contract.",
+      "integration_effort": "high",
+      "license": "MIT",
+      "loop_control": "No explicit bounded iteration contract was detected.",
+      "mechanism": "Inventory hypothesis (b1_prompt): evidence and reasoning critique.",
+      "observability": "Mentions outputs or reports, but no prototype RunTrace term was detected.",
+      "output_contract": "Mentions structured or JSON output, but not the prototype's exact Hypothesis fields.",
+      "relative_path": "skills/scientific-critical-thinking/SKILL.md",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "scanned_files": [
+        "references/common_biases.md",
+        "references/core_capabilities.md",
+        "references/evidence_hierarchy.md",
+        "references/experimental_design.md",
+        "references/logical_fallacies.md",
+        "references/scientific_method.md",
+        "references/statistical_pitfalls.md",
+        "SKILL.md"
+      ],
+      "security_risks": [
+        {
+          "kind": "shell_command",
+          "line": 45,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 46,
+          "relative_path": "SKILL.md",
+          "summary": "python scripts/generate_schematic.py \"GRADE evidence assessment flowchart with downgrade and upgrade factors\" -o figures/grade_flowchart.png --doc-type report"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "candidate_name": "Scholar Evaluation",
+      "commit": "b2a92ba052dcae4ef48e850b9e31ebf75706be48",
+      "content_sha256": "902c41a08cb574ea802cd3d0f03d37e4f7913b83ec988a313db8eb53841669d2",
+      "decision": "adapt",
+      "decision_gates": {
+        "bounded_loop_contract_detected": false,
+        "exact_hypothesis_contract_detected": false,
+        "host_actions_detected": true,
+        "intended_for_b1": true,
+        "license_compatible": true,
+        "run_trace_contract_detected": false,
+        "scientific_reasoning_detected": true,
+        "supplied_reference_enforcement_detected": false
+      },
+      "decision_reason": "B1-targeted candidate requires adaptation for: exact Hypothesis contract, supplied-reference enforcement, bounded loop contract, RunTrace contract, host-action removal.",
+      "dependencies": [],
+      "evidence_control": "Mentions evidence or sources but exact supplied evidence_ids and observation_ids enforcement was not detected.",
+      "input_contract": "Static inspection found no exact prototype CaseBundle input contract.",
+      "integration_effort": "high",
+      "license": "MIT",
+      "loop_control": "Contains iteration/refinement language, but no bounded-loop phrase was detected.",
+      "mechanism": "Inventory hypothesis (b1_prompt): structured scholarly evaluation.",
+      "observability": "Mentions outputs or reports, but no prototype RunTrace term was detected.",
+      "output_contract": "Mentions structured or JSON output, but not the prototype's exact Hypothesis fields.",
+      "relative_path": "skills/scholar-evaluation/SKILL.md",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "scanned_files": [
+        "assets/evaluation_template.json",
+        "assets/evidence_manifest_template.json",
+        "assets/process_checklist_template.json",
+        "assets/ratings_template.csv",
+        "assets/rubric_template.json",
+        "references/evaluation_framework.md",
+        "references/local_tooling.md",
+        "references/responsible_assessment.md",
+        "references/security_validation.md",
+        "references/source_ledger.md",
+        "scripts/_common.py",
+        "scripts/calculate_scores.py",
+        "scripts/check_process.py",
+        "scripts/check_traceability.py",
+        "scripts/generate_report_scaffold.py",
+        "scripts/summarize_agreement.py",
+        "scripts/validate_rubric.py",
+        "scripts/weight_sensitivity.py",
+        "SKILL.md"
+      ],
+      "security_risks": [
+        {
+          "kind": "file_write",
+          "line": 245,
+          "relative_path": "SKILL.md",
+          "summary": "--output /tmp/developmental-report-scaffold.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 67,
+          "relative_path": "references/local_tooling.md",
+          "summary": "--output /tmp/scholar-score.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 121,
+          "relative_path": "references/local_tooling.md",
+          "summary": "--output /tmp/weight-sensitivity.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 151,
+          "relative_path": "references/local_tooling.md",
+          "summary": "--output /tmp/agreement-summary.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 199,
+          "relative_path": "references/local_tooling.md",
+          "summary": "--output /tmp/developmental-report-scaffold.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 212,
+          "relative_path": "references/local_tooling.md",
+          "summary": "--output /tmp/developmental-report-scaffold.json"
+        },
+        {
+          "kind": "file_write",
+          "line": 74,
+          "relative_path": "references/security_validation.md",
+          "summary": "transmission nor create a missing-file fallback. The generated root"
+        },
+        {
+          "kind": "file_write",
+          "line": 93,
+          "relative_path": "references/security_validation.md",
+          "summary": "--output /tmp/scholar-evaluation-pr-scan.md \\"
+        },
+        {
+          "kind": "file_write",
+          "line": 192,
+          "relative_path": "scripts/_common.py",
+          "summary": "def write_json("
+        },
+        {
+          "kind": "file_write",
+          "line": 203,
+          "relative_path": "scripts/_common.py",
+          "summary": "if output.suffix.lower() != \".json\":"
+        },
+        {
+          "kind": "file_write",
+          "line": 207,
+          "relative_path": "scripts/_common.py",
+          "summary": "if output.exists() and not force:"
+        },
+        {
+          "kind": "file_write",
+          "line": 209,
+          "relative_path": "scripts/_common.py",
+          "summary": "if not output.parent.exists() or not output.parent.is_dir():"
+        },
+        {
+          "kind": "file_write",
+          "line": 211,
+          "relative_path": "scripts/_common.py",
+          "summary": "output.write_text(rendered, encoding=\"utf-8\")"
+        },
+        {
+          "kind": "file_write",
+          "line": 341,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"SCALE_STEP_INVALID\", f\"{path}.step\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 344,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"SCALE_ANCHORS_INVALID\", f\"{path}.anchors\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 353,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"ANCHOR_SCORE_INVALID\", f\"{anchor_path}.score\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 360,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"ANCHOR_SCORE_DUPLICATE\", f\"{path}.anchors\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 362,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"ANCHOR_BOUNDS_MISSING\", f\"{path}.anchors\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 372,
+          "relative_path": "scripts/_common.py",
+          "summary": "strings.append(current.lower())"
+        },
+        {
+          "kind": "file_write",
+          "line": 413,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"PURPOSE_NOT_ALLOWED\", \"$.intended_use.purpose\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 536,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"CRITERIA_INVALID\", \"$.criteria\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 571,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"CRITERION_WEIGHT_INVALID\", f\"{path}.weight\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 591,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"CRITERION_ANCHORS_INVALID\", f\"{path}.anchors\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 611,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"CRITERION_ANCHORS_INCOMPLETE\", f\"{path}.anchors\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 614,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"CRITERION_WEIGHTS_MUST_SUM_TO_ONE\", \"$.criteria\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 724,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"SCALE_UNUSABLE\", \"$.scale\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 767,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"PURPOSE_NOT_ALLOWED\", \"$.purpose\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 777,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"RATINGS_INVALID\", \"$.ratings\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 805,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"RATING_STATUS_INVALID\", f\"{path}.status\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 830,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"SCORE_NOT_ON_SCALE\", f\"{path}.score\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 840,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"UNRATED_SCORE_MUST_BE_NULL\", f\"{path}.score\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 851,
+          "relative_path": "scripts/_common.py",
+          "summary": "issues.append(Issue(\"CRITERION_RATING_REQUIRED\", f\"$.ratings.{criterion_id}\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 38,
+          "relative_path": "scripts/calculate_scores.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output JSON file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 49,
+          "relative_path": "scripts/calculate_scores.py",
+          "summary": "_common.write_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 52,
+          "relative_path": "scripts/calculate_scores.py",
+          "summary": "_common.write_json(_common.failure_report(error), None)"
+        },
+        {
+          "kind": "file_write",
+          "line": 103,
+          "relative_path": "scripts/check_process.py",
+          "summary": "issues.append(_common.Issue(\"SCHEMA_VERSION_UNSUPPORTED\", \"$.schema_version\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 106,
+          "relative_path": "scripts/check_process.py",
+          "summary": "issues.append(_common.Issue(\"PURPOSE_NOT_ALLOWED\", \"$.purpose\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 214,
+          "relative_path": "scripts/check_process.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output JSON file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 223,
+          "relative_path": "scripts/check_process.py",
+          "summary": "_common.write_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 226,
+          "relative_path": "scripts/check_process.py",
+          "summary": "_common.write_json(_common.failure_report(error), None)"
+        },
+        {
+          "kind": "file_write",
+          "line": 45,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"SCHEMA_VERSION_UNSUPPORTED\", \"$.schema_version\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 47,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"EVALUATION_ID_MISMATCH\", \"$.evaluation_id\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 49,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"WORK_ID_MISMATCH\", \"$.work_id\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 63,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"EVIDENCE_LIST_INVALID\", \"$.evidence\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 94,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"CRITERION_IDS_INVALID\", f\"{path}.criterion_ids\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 121,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"SOURCE_TYPE_INVALID\", f\"{path}.source_type\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 125,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"ACCESS_STATUS_INVALID\", f\"{path}.access_status\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 127,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"EVIDENCE_UNAVAILABLE\", f\"{path}.access_status\"))"
+        },
+        {
+          "kind": "file_write",
+          "line": 157,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"EVIDENCE_REFERENCE_UNRESOLVED\", path))"
+        },
+        {
+          "kind": "file_write",
+          "line": 159,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "issues.append(_common.Issue(\"EVIDENCE_CRITERION_MISMATCH\", path))"
+        },
+        {
+          "kind": "file_write",
+          "line": 212,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output JSON file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 225,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "_common.write_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 228,
+          "relative_path": "scripts/check_traceability.py",
+          "summary": "_common.write_json(_common.failure_report(error), None)"
+        },
+        {
+          "kind": "file_write",
+          "line": 200,
+          "relative_path": "scripts/generate_report_scaffold.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output JSON file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 223,
+          "relative_path": "scripts/generate_report_scaffold.py",
+          "summary": "_common.write_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 226,
+          "relative_path": "scripts/generate_report_scaffold.py",
+          "summary": "_common.write_json(_common.failure_report(error), None)"
+        },
+        {
+          "kind": "file_write",
+          "line": 216,
+          "relative_path": "scripts/summarize_agreement.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output JSON file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 227,
+          "relative_path": "scripts/summarize_agreement.py",
+          "summary": "_common.write_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 230,
+          "relative_path": "scripts/summarize_agreement.py",
+          "summary": "_common.write_json(_common.failure_report(error), None)"
+        },
+        {
+          "kind": "file_write",
+          "line": 37,
+          "relative_path": "scripts/validate_rubric.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output JSON file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 46,
+          "relative_path": "scripts/validate_rubric.py",
+          "summary": "_common.write_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 49,
+          "relative_path": "scripts/validate_rubric.py",
+          "summary": "_common.write_json(_common.failure_report(error), None)"
+        },
+        {
+          "kind": "file_write",
+          "line": 230,
+          "relative_path": "scripts/weight_sensitivity.py",
+          "summary": "\"--force\", action=\"store_true\", help=\"Replace an existing output JSON file\""
+        },
+        {
+          "kind": "file_write",
+          "line": 243,
+          "relative_path": "scripts/weight_sensitivity.py",
+          "summary": "_common.write_json(report, args.output, force=args.force)"
+        },
+        {
+          "kind": "file_write",
+          "line": 246,
+          "relative_path": "scripts/weight_sensitivity.py",
+          "summary": "_common.write_json(_common.failure_report(error), None)"
+        },
+        {
+          "kind": "shell_command",
+          "line": 100,
+          "relative_path": "SKILL.md",
+          "summary": "Use Bash only to invoke the documented local `python3` commands."
+        },
+        {
+          "kind": "shell_command",
+          "line": 144,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 145,
+          "relative_path": "SKILL.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_rubric.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 184,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 185,
+          "relative_path": "SKILL.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/calculate_scores.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 192,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 193,
+          "relative_path": "SKILL.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_traceability.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 201,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 202,
+          "relative_path": "SKILL.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/summarize_agreement.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 210,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 211,
+          "relative_path": "SKILL.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/weight_sensitivity.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 219,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 220,
+          "relative_path": "SKILL.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_process.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 241,
+          "relative_path": "SKILL.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 242,
+          "relative_path": "SKILL.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/generate_report_scaffold.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 39,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 40,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/validate_rubric.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 63,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 64,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/calculate_scores.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 92,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 93,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_traceability.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 115,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 116,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/weight_sensitivity.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 147,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 148,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/summarize_agreement.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 168,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 169,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/check_process.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 195,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 196,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/generate_report_scaffold.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 204,
+          "relative_path": "references/local_tooling.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 205,
+          "relative_path": "references/local_tooling.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/generate_report_scaffold.py \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 63,
+          "relative_path": "references/security_validation.md",
+          "summary": "because the documented fixed `python3` commands are shell invocations. The"
+        },
+        {
+          "kind": "shell_command",
+          "line": 79,
+          "relative_path": "references/security_validation.md",
+          "summary": "```bash"
+        },
+        {
+          "kind": "shell_command",
+          "line": 80,
+          "relative_path": "references/security_validation.md",
+          "summary": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \\"
+        },
+        {
+          "kind": "shell_command",
+          "line": 87,
+          "relative_path": "references/security_validation.md",
+          "summary": "uv run skills-ref validate skills/scholar-evaluation"
+        },
+        {
+          "kind": "shell_command",
+          "line": 89,
+          "relative_path": "references/security_validation.md",
+          "summary": "uv run skill-scanner scan skills/scholar-evaluation --use-behavioral"
+        },
+        {
+          "kind": "shell_command",
+          "line": 91,
+          "relative_path": "references/security_validation.md",
+          "summary": "uv run python scan_pr_skills.py \\"
+        }
+      ],
+      "status": "verified"
+    }
+  ],
+  "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+  "schema_version": 1
+}

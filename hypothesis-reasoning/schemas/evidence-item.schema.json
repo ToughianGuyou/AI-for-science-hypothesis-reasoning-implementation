@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "VerificationStatus": {
+      "enum": [
+        "source_located",
+        "partially_verified",
+        "unverified"
+      ],
+      "title": "VerificationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evidence_id": {
+      "minLength": 1,
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "extracted_fact": {
+      "minLength": 1,
+      "title": "Extracted Fact",
+      "type": "string"
+    },
+    "identifier": {
+      "minLength": 1,
+      "title": "Identifier",
+      "type": "string"
+    },
+    "location": {
+      "additionalProperties": true,
+      "title": "Location",
+      "type": "object"
+    },
+    "paper_title": {
+      "minLength": 1,
+      "title": "Paper Title",
+      "type": "string"
+    },
+    "scope": {
+      "minLength": 1,
+      "title": "Scope",
+      "type": "string"
+    },
+    "source_text": {
+      "minLength": 1,
+      "title": "Source Text",
+      "type": "string"
+    },
+    "verification_status": {
+      "$ref": "#/$defs/VerificationStatus"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "paper_title",
+    "identifier",
+    "location",
+    "source_text",
+    "extracted_fact",
+    "scope",
+    "verification_status"
+  ],
+  "title": "EvidenceItem",
+  "type": "object"
+}

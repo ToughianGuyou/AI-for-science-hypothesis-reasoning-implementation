@@ -1,0 +1,26 @@
+version: 1
+
+roles:
+  topic_discovery: qwen-plus
+  topic_selection: qwen-plus
+  generator: qwen-plus
+  critic: qwen-plus
+  judge: qwen-plus
+  adjudicator: qwen-max
+  repair: qwen-turbo
+
+defaults:
+  enable_thinking: false
+
+pricing:
+  source: https://help.aliyun.com/zh/model-studio/model-pricing
+  checked_on: null
+  currency: CNY
+  unit_tokens: 1000000
+  models:
+    qwen-plus:
+      input_token_tiers: []
+    qwen-max:
+      input_token_tiers: []
+    qwen-turbo:
+      input_token_tiers: []
