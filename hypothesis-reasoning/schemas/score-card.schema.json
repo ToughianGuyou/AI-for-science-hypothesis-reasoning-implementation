@@ -1,0 +1,73 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "alternative_handling": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Alternative Handling",
+      "type": "integer"
+    },
+    "evidence_fidelity": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Evidence Fidelity",
+      "type": "integer"
+    },
+    "falsifiability": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Falsifiability",
+      "type": "integer"
+    },
+    "hidden_outcome_alignment": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Hidden Outcome Alignment",
+      "type": "integer"
+    },
+    "logical_coherence": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Logical Coherence",
+      "type": "integer"
+    },
+    "mechanism_clarity": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Mechanism Clarity",
+      "type": "integer"
+    },
+    "question_alignment": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Question Alignment",
+      "type": "integer"
+    },
+    "reasons": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Reasons",
+      "type": "object"
+    },
+    "validation_feasibility": {
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Validation Feasibility",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "evidence_fidelity",
+    "question_alignment",
+    "logical_coherence",
+    "mechanism_clarity",
+    "falsifiability",
+    "validation_feasibility",
+    "alternative_handling",
+    "hidden_outcome_alignment",
+    "reasons"
+  ],
+  "title": "ScoreCard",
+  "type": "object"
+}

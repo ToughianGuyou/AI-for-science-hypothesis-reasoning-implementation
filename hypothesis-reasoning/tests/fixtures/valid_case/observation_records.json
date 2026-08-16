@@ -1,0 +1,13 @@
+[
+  {
+    "observation_id": "observation-001",
+    "target_id": "target-001",
+    "data_source": "public-survey",
+    "modality": "time_series",
+    "summary": "A periodic signal contains an unexplained deviation.",
+    "features": [{"name": "period_days", "value": 3.2, "unit": "day", "uncertainty": 0.1}],
+    "anomaly_tags": ["timing-deviation"],
+    "method": "upstream feature extraction",
+    "provenance": {"dataset_version": "v1", "processing_version": "extractor-1"}
+  }
+]

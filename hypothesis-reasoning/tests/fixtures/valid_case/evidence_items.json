@@ -1,0 +1,12 @@
+[
+  {
+    "evidence_id": "evidence-001",
+    "paper_title": "A public astronomy study",
+    "identifier": "doi:10.0000/example",
+    "location": {"page": 2, "section": "Results"},
+    "source_text": "The measured signal changes over time.",
+    "extracted_fact": "The signal changes over time.",
+    "scope": "The observed sample only.",
+    "verification_status": "source_located"
+  }
+]

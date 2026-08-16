@@ -1,0 +1,25 @@
+.obsidian/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated QA intermediates
+.tmp/
+.worktrees/
+
+# Hypothesis reasoning local state
+hypothesis-reasoning/.venv/
+hypothesis-reasoning/.tmp/
+hypothesis-reasoning/.cache/
+hypothesis-reasoning/results/raw/
+hypothesis-reasoning/.coverage
+hypothesis-reasoning/htmlcov/
+hypothesis-reasoning/**/*.egg-info/
+hypothesis-reasoning/**/__pycache__/

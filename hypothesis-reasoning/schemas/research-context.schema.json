@@ -1,0 +1,47 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_resources": {
+      "additionalProperties": true,
+      "title": "Available Resources",
+      "type": "object"
+    },
+    "context_id": {
+      "minLength": 1,
+      "title": "Context Id",
+      "type": "string"
+    },
+    "domain_scope": {
+      "minLength": 1,
+      "title": "Domain Scope",
+      "type": "string"
+    },
+    "max_topic_candidates": {
+      "minimum": 1,
+      "title": "Max Topic Candidates",
+      "type": "integer"
+    },
+    "selection_policy_id": {
+      "minLength": 1,
+      "title": "Selection Policy Id",
+      "type": "string"
+    },
+    "topic_constraints": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Topic Constraints",
+      "type": "array"
+    }
+  },
+  "required": [
+    "context_id",
+    "domain_scope",
+    "topic_constraints",
+    "available_resources",
+    "max_topic_candidates",
+    "selection_policy_id"
+  ],
+  "title": "ResearchContext",
+  "type": "object"
+}

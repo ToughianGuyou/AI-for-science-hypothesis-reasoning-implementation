@@ -1,0 +1,8 @@
+{
+  "context_id": "case-invalid-reference-001",
+  "domain_scope": "基于公开论文和观测数据的天文学研究",
+  "topic_constraints": ["仅使用公开论文和观测摘要"],
+  "available_resources": {"evidence": true, "observations": true},
+  "max_topic_candidates": 1,
+  "selection_policy_id": "selection-v1"
+}

@@ -1,0 +1,138 @@
+{
+  "$defs": {
+    "TopicDecisionStatus": {
+      "enum": [
+        "selected",
+        "abstained"
+      ],
+      "title": "TopicDecisionStatus",
+      "type": "string"
+    },
+    "TopicDimensionScore": {
+      "additionalProperties": false,
+      "properties": {
+        "data_availability": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Data Availability",
+          "type": "integer"
+        },
+        "evidence_sufficiency": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Evidence Sufficiency",
+          "type": "integer"
+        },
+        "novelty_proxy": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Novelty Proxy",
+          "type": "integer"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "scientific_value_proxy": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Scientific Value Proxy",
+          "type": "integer"
+        },
+        "testability": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Testability",
+          "type": "integer"
+        },
+        "topic_id": {
+          "minLength": 1,
+          "title": "Topic Id",
+          "type": "string"
+        },
+        "uncertainty": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Uncertainty",
+          "type": "integer"
+        },
+        "validation_cost": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Validation Cost",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "topic_id",
+        "evidence_sufficiency",
+        "scientific_value_proxy",
+        "testability",
+        "data_availability",
+        "validation_cost",
+        "novelty_proxy",
+        "uncertainty",
+        "reason"
+      ],
+      "title": "TopicDimensionScore",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "ranked_topic_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Ranked Topic Ids",
+      "type": "array"
+    },
+    "rejection_reasons": {
+      "items": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "title": "Rejection Reasons",
+      "type": "array"
+    },
+    "scores": {
+      "items": {
+        "$ref": "#/$defs/TopicDimensionScore"
+      },
+      "title": "Scores",
+      "type": "array"
+    },
+    "selected_topic_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Selected Topic Id"
+    },
+    "selection_reason": {
+      "minLength": 1,
+      "title": "Selection Reason",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/TopicDecisionStatus"
+    }
+  },
+  "required": [
+    "ranked_topic_ids",
+    "scores",
+    "selection_reason",
+    "rejection_reasons",
+    "status"
+  ],
+  "title": "TopicDecision",
+  "type": "object"
+}

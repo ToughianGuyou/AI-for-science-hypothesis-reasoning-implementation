@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "Decision": {
+      "enum": [
+        "pass",
+        "revise",
+        "reject"
+      ],
+      "title": "Decision",
+      "type": "string"
+    },
+    "Severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "blocking"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "actionable_revision": {
+      "minLength": 1,
+      "title": "Actionable Revision",
+      "type": "string"
+    },
+    "critique_id": {
+      "minLength": 1,
+      "title": "Critique Id",
+      "type": "string"
+    },
+    "decision": {
+      "$ref": "#/$defs/Decision"
+    },
+    "description": {
+      "minLength": 1,
+      "title": "Description",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "hypothesis_id": {
+      "minLength": 1,
+      "title": "Hypothesis Id",
+      "type": "string"
+    },
+    "issue_type": {
+      "minLength": 1,
+      "title": "Issue Type",
+      "type": "string"
+    },
+    "severity": {
+      "$ref": "#/$defs/Severity"
+    },
+    "target_field": {
+      "minLength": 1,
+      "title": "Target Field",
+      "type": "string"
+    }
+  },
+  "required": [
+    "critique_id",
+    "hypothesis_id",
+    "issue_type",
+    "severity",
+    "target_field",
+    "evidence_ids",
+    "description",
+    "actionable_revision",
+    "decision"
+  ],
+  "title": "Critique",
+  "type": "object"
+}
